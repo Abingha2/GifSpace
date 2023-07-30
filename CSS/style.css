@@ -1,0 +1,12 @@
+img.bees{
+    width:200px;
+}
+.gifmain{
+    display: flex;
+    width: 820px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: space-between;
+    align-items: center;
+}
