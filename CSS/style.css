@@ -1,0 +1,17 @@
+img.bees{
+    width: 22vw;
+    height: 22vw;
+    object-fit: contain;
+    border: 2px solid black
+}
+.gifmain{
+    display: flex;
+    width: 95vw;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid black;
+    background:black;
+}
