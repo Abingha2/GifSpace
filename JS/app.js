@@ -2,20 +2,29 @@ async function ready() {
     let userMessage =prompt("Please enter Gify Api Key")
     localStorage.setItem("Api Key",userMessage)
     const gifyApi= userMessage
-    const endpoint = "trending"
-    const limit = 16
-    const offset = 0
-    const rating = "pg-13"
-    const result =await fetch(`https://api.giphy.com/v1/gifs/${endpoint}?api_key=${gifyApi}&tag=&rating=${rating}&offset=${offset}&limit=${limit}`,{headers:{"Content-Type": "application/json"}})
-    let test1=(await result.json())
-    console.log(test1.data[0].images.preview_gif.url)
     const display=document.querySelector(".gifmain")
-    for (const image of test1.data){
+    const categories = await gify(gifyApi,"categories")
+    for (const image of categories.data){
         const gif=document.createElement("img")
-    gif.src=image.images.preview_gif.url
+        gif.src=image.gif.images.preview_gif.url
+        const gifTitle=document.createElement("div")
+        gifTitle.innerHTML=image.name
+    //gif.src=image.images.preview_gif.url
     gif.classList.add("bees")
-    display.appendChild(gif)
+    const gifBlock=document.createElement("div")
+    gifBlock.appendChild(gifTitle)
+    gifBlock.appendChild(gif)
+    gifTitle.classList.add("cat")
+    display.appendChild(gifBlock)
+    gifBlock.classList.add("lego")
     }
     
 }
+async function gify(gifyApi,endpoint,limit,offset,rating){
+    const action =await fetch(`https://api.giphy.com/v1/gifs/${endpoint}?api_key=${gifyApi}&tag=&rating=${rating}&offset=${offset}&limit=${limit}`,{headers:{"Content-Type": "application/json"}})
+    const result=(await action.json())
+    console.log(result.data)
+    return result
+}
 document.addEventListener("DOMContentLoaded",ready)
+
