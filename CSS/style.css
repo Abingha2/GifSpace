@@ -4,6 +4,32 @@ img.bees{
     object-fit: contain;
     border: 2px solid black
 }
+nav{
+    width:95vw;
+}
+li {
+    display:inline;
+    font-size: 20px;
+    border:2px solid red;
+    border-radius: 12px 12px 0px 0px;
+    background-color: black;
+    padding: 0px 30px 0px 30px;
+    margin: 0px 0px 0px 4px;
+}
+ul{
+    display:flex;
+    list-style-type: disc;
+    margin:0px;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+    }    
+a{
+    color:white;
+    text-decoration:none;
+}
 .gifmain{
     display: flex;
     width: 95vw;
@@ -14,4 +40,23 @@ img.bees{
     align-items: center;
     border: 2px solid black;
     background:black;
+}
+div.cat{
+    width: 22vw;
+    z-index: 1;
+    position: absolute;
+    text-align: center;
+    text-shadow: 1px 1px 2px black, 1px 1px 2px black;
+    font-size: 1.3em;
+}
+div.lego{
+    color: white;
+    position: relative;
+    z-index: 2;
+    width: 22vw;
+    height: 22vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
 }
