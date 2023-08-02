@@ -23,13 +23,21 @@ async function ready() {
     //might be wrong.
     if(window.location.href.indexOf("search.html")>-1)
     {
-    await search(display)
+    //this set the variable search bar to whatever the user is inputing.
+    const searchBar =document.querySelector("#search")
+    //this is listening for the search result from the user as they type.
+    searchBar.addEventListener("keydown",async(event)=>{
+        //this is waiting for the user to hit enter with their completed search
+        if (event.key === "Enter"){
+        //this is displaying the search after the user hits enter.
+            await search(display,event.target.value)
+        }
+    })
     }
 }//needs to  call my api function and try to do something with the results 
 //ab steps
-async function search(display){
+async function search(display,userSearch){
     //prompt box appears on screen for user
-    let userSearch =prompt("Search for anything here!")
     //user types in prompt box and hit enter
     //event listner.(personal stretch goal)
     //variables taken from users search in an empty string 
